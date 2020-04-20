@@ -1,0 +1,3 @@
+(library
+ (name rayml)
+ (libraries base stdio))
