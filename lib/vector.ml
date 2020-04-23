@@ -27,6 +27,14 @@ let length u = Float.sqrt (dot u u)
 
 let unit_vector v = v / (length v)
 
+let reflect v n = v - n * dot v n * 2.
+
+let refract v n etai_over_etat = 
+  let cos_theta = dot ~-v n in
+  let r_out_parallel = (v + n * cos_theta) * etai_over_etat in
+  let r_out_perp = ~-n * Float.sqrt (1. -. dot r_out_parallel r_out_parallel) in
+  r_out_parallel + r_out_perp
+
 let random range = 
   of_tuple (Random.float range, Random.float range, Random.float range)
 
