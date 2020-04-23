@@ -1,0 +1,14 @@
+(** @canonical Rayml.Camera *)
+module Camera = Rayml__Camera
+
+(** @canonical Rayml.Hittable_list *)
+module Hittable_list = Rayml__Hittable_list
+
+(** @canonical Rayml.Ray *)
+module Ray = Rayml__Ray
+
+(** @canonical Rayml.Sphere *)
+module Sphere = Rayml__Sphere
+
+(** @canonical Rayml.Vector *)
+module Vector = Rayml__Vector

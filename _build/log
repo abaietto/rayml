@@ -1,0 +1,115 @@
+# dune build ./bin/main.exe
+# OCAMLPARAM: unset
+# Workspace root: /Users/alexbaietto/Projects/ray-tracer/rayml
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/8h/gnbn6t8x6yq58xp2lfyq7s1r0000gn/T/dunea64269.output 2> /dev/null
+# Auto-detected concurrency: 4
+# disable binary cache
+$ /Users/alexbaietto/.opam/4.09.0/bin/ocamlc.opt -config > /var/folders/8h/gnbn6t8x6yq58xp2lfyq7s1r0000gn/T/dunedab369.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path =
+#      Some External "/Users/alexbaietto/.opam/4.09.0/lib/toplevel"
+#  ; ocaml_bin = External "/Users/alexbaietto/.opam/4.09.0/bin"
+#  ; ocaml = Ok External "/Users/alexbaietto/.opam/4.09.0/bin/ocaml"
+#  ; ocamlc = External "/Users/alexbaietto/.opam/4.09.0/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/Users/alexbaietto/.opam/4.09.0/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/Users/alexbaietto/.opam/4.09.0/bin/ocamldep.opt"
+#  ; ocamlmklib =
+#      Ok External "/Users/alexbaietto/.opam/4.09.0/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/Users/alexbaietto/Projects/ray-tracer/rayml/_build/default"
+#        ; "MANPATH" :
+#            "/Users/alexbaietto/Projects/ray-tracer/rayml/_build/install/default/bin"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/alexbaietto/Projects/ray-tracer/rayml/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/alexbaietto/Projects/ray-tracer/rayml/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/alexbaietto/Projects/ray-tracer/rayml/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_path = [ External "/Users/alexbaietto/.opam/4.09.0/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.09.0"
+#      ; standard_library_default = "/Users/alexbaietto/.opam/4.09.0/lib/ocaml"
+#      ; standard_library = "/Users/alexbaietto/.opam/4.09.0/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "cc"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; bytecomp_c_compiler =
+#          [ "cc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "cc"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; cc_profile = []
+#      ; architecture = "amd64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "x86_64-apple-darwin19.0.0"
+#      ; target = "x86_64-apple-darwin19.0.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = false
+#      ; exec_magic_number = "Caml1999X026"
+#      ; cmi_magic_number = "Caml1999I026"
+#      ; cmo_magic_number = "Caml1999O026"
+#      ; cma_magic_number = "Caml1999A026"
+#      ; cmx_magic_number = "Caml1999Y026"
+#      ; cmxa_magic_number = "Caml1999Z026"
+#      ; ast_impl_magic_number = "Caml1999M026"
+#      ; ast_intf_magic_number = "Caml1999N026"
+#      ; cmxs_magic_number = "Caml1999D026"
+#      ; cmt_magic_number = "Caml1999T026"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamldep.opt -modules -impl lib/sphere.ml) > _build/default/lib/.rayml.objs/sphere.ml.d
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.rayml.objs/byte -I /Users/alexbaietto/.opam/4.09.0/lib/base -I /Users/alexbaietto/.opam/4.09.0/lib/base/base_internalhash_types -I /Users/alexbaietto/.opam/4.09.0/lib/base/caml -I /Users/alexbaietto/.opam/4.09.0/lib/base/shadow_stdlib -I /Users/alexbaietto/.opam/4.09.0/lib/sexplib0 -I /Users/alexbaietto/.opam/4.09.0/lib/stdio -no-alias-deps -opaque -open Rayml -o lib/.rayml.objs/byte/rayml__Sphere.cmo -c -impl lib/sphere.ml)
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.main.eobjs/byte -I /Users/alexbaietto/.opam/4.09.0/lib/base -I /Users/alexbaietto/.opam/4.09.0/lib/base/base_internalhash_types -I /Users/alexbaietto/.opam/4.09.0/lib/base/caml -I /Users/alexbaietto/.opam/4.09.0/lib/base/shadow_stdlib -I /Users/alexbaietto/.opam/4.09.0/lib/sexplib0 -I /Users/alexbaietto/.opam/4.09.0/lib/stdio -I lib/.rayml.objs/byte -I lib/.rayml.objs/native -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe__Main.cmo -c -impl bin/main.ml)
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/.rayml.objs/byte -I lib/.rayml.objs/native -I /Users/alexbaietto/.opam/4.09.0/lib/base -I /Users/alexbaietto/.opam/4.09.0/lib/base/base_internalhash_types -I /Users/alexbaietto/.opam/4.09.0/lib/base/caml -I /Users/alexbaietto/.opam/4.09.0/lib/base/shadow_stdlib -I /Users/alexbaietto/.opam/4.09.0/lib/sexplib0 -I /Users/alexbaietto/.opam/4.09.0/lib/stdio -intf-suffix .ml -no-alias-deps -opaque -open Rayml -o lib/.rayml.objs/native/rayml__Sphere.cmx -c -impl lib/sphere.ml)
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/rayml.cmxa lib/.rayml.objs/native/rayml.cmx lib/.rayml.objs/native/rayml__Vector.cmx lib/.rayml.objs/native/rayml__Ray.cmx lib/.rayml.objs/native/rayml__Sphere.cmx lib/.rayml.objs/native/rayml__Hittable_list.cmx lib/.rayml.objs/native/rayml__Camera.cmx)
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I /Users/alexbaietto/.opam/4.09.0/lib/base -I /Users/alexbaietto/.opam/4.09.0/lib/base/base_internalhash_types -I /Users/alexbaietto/.opam/4.09.0/lib/base/caml -I /Users/alexbaietto/.opam/4.09.0/lib/base/shadow_stdlib -I /Users/alexbaietto/.opam/4.09.0/lib/sexplib0 -I /Users/alexbaietto/.opam/4.09.0/lib/stdio -I lib/.rayml.objs/byte -I lib/.rayml.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
+$ (cd _build/default && /Users/alexbaietto/.opam/4.09.0/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe /Users/alexbaietto/.opam/4.09.0/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/alexbaietto/.opam/4.09.0/lib/base/base_internalhash_types /Users/alexbaietto/.opam/4.09.0/lib/base/caml/caml.cmxa /Users/alexbaietto/.opam/4.09.0/lib/sexplib0/sexplib0.cmxa /Users/alexbaietto/.opam/4.09.0/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/alexbaietto/.opam/4.09.0/lib/base/base.cmxa -I /Users/alexbaietto/.opam/4.09.0/lib/base /Users/alexbaietto/.opam/4.09.0/lib/stdio/stdio.cmxa lib/rayml.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)
