@@ -42,12 +42,15 @@ let scatter material (r : Ray.t) hitmark =
   | Material.Metal (v, f) -> 
     let fuzz = if Float.(f < 1.) then f else 1. in
     let reflected = Vector.(reflect (unit_vector r.direction) hitmark.normal) in
-    let scattered = Ray.of_tuple (hitmark.p, Vector.(reflected + random_unit_sphere () * fuzz)) in
-    let thing = Vector.dot scattered.direction hitmark.normal in
-    if Float.(thing > 0.) then Some (scattered, v) else None
+    let scattered = 
+      Ray.of_tuple 
+        (hitmark.p, Vector.(reflected + random_unit_sphere () * fuzz)) in
+    let projection = Vector.dot scattered.direction hitmark.normal in
+    if Float.(projection > 0.) then Some (scattered, v) else None
   | Material.Dielectric refract_idx -> 
     let attenuation = Vector.of_tuple (1., 1., 1.) in
-    let etai_over_etat = if hitmark.front_face then 1. /. refract_idx else refract_idx in
+    let etai_over_etat = if hitmark.front_face then 1. /. refract_idx 
+      else refract_idx in
     let unit_direction = Vector.unit_vector r.direction in
     let cos_theta = Float.min Vector.(dot ~-unit_direction hitmark.normal) 1. in
     let sin_theta = Float.sqrt (1. -. cos_theta **. 2.) in
@@ -60,7 +63,8 @@ let scatter material (r : Ray.t) hitmark =
         let reflected = Vector.reflect unit_direction hitmark.normal in
         let scattered = Ray.of_tuple (hitmark.p, reflected) in
         Some (scattered, attenuation) else
-        let refracted = Vector.refract unit_direction hitmark.normal etai_over_etat in
+        let refracted = 
+          Vector.refract unit_direction hitmark.normal etai_over_etat in
         let scattered = Ray.of_tuple (hitmark.p, refracted) in
         Some (scattered, attenuation) 
 

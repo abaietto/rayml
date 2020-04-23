@@ -21,7 +21,9 @@ let mult u v = {x = u.x *. v.x; y = u.y *. v.y; z = u.z *. v.z}
 
 let dot u v = u.x *. v.x +. u.y *. v.y +. u.z *. v.z
 
-let cross u v = {x = u.y *. v.z -. u.z *. v.y; y = u.z *. v.x -. u.x *. v.z; z = u.x *. v.y -. u.y *. v.x}
+let cross u v = {x = u.y *. v.z -. u.z *. v.y; 
+                 y = u.z *. v.x -. u.x *. v.z; 
+                 z = u.x *. v.y -. u.y *. v.x}
 
 let length u = Float.sqrt (dot u u)
 
@@ -54,7 +56,13 @@ let random_unit_vector () =
   let r = Float.sqrt (1. -. z **. 2.) in
   of_tuple (r *. Float.cos a, r *. Float.sin a, z)
 
-let write {x; y; z} = printf "%i %i %i\n" (Int.of_float x) (Int.of_float y) (Int.of_float z)
+let rec random_unit_disk () = 
+  let p = of_tuple 
+            (Random.float_range (-1.) 1., Random.float_range (-1.) 1., 0.) in
+  if Float.(dot p p >= 1.) then random_unit_disk () else p
+
+let write {x; y; z} = printf "%i %i %i\n" 
+                        (Int.of_float x) (Int.of_float y) (Int.of_float z)
 
 let write_color {x; y; z} samples_per_pixel =
   let scale = 1. /. (Float.of_int samples_per_pixel) in
