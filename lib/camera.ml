@@ -10,7 +10,8 @@ type t = {origin : Vector.t;
           lens_radius : float
          }
 
-let of_tuple (look_from, look_at, vup, vfov, aspect, aperture, focus_dist) = 
+let create ~look_from ~look_at ~vup ~vfov 
+      ~aspect ~aperture ~focus_dist = 
   let origin = look_from in
   let lens_radius = aperture /. 2. in
   let degrees_to_radians degrees = degrees /. 180. *. Float.pi in
@@ -32,12 +33,12 @@ let of_tuple (look_from, look_at, vup, vfov, aspect, aperture, focus_dist) =
   {origin; lower_left; vertical; horizontal; u; v; w; lens_radius}
 
 let get_ray cam s t =
-  let rd = Vector.(random_unit_disk () * cam.lens_radius) in
+  let rd = Vector.(random_in_unit_disk () * cam.lens_radius) in
   let offset = Vector.(cam.u * rd.x + cam.v * rd.y) in
   let start = Vector.(cam.origin + offset) in
   let direction = Vector.(cam.lower_left + 
                           cam.horizontal * s + 
                           cam.vertical * t - 
                           cam.origin - offset) in
-  Ray.of_tuple (start, direction)
+  Ray.create start direction
 
